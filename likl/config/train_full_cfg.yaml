@@ -1,0 +1,98 @@
+model_cfg:
+  model_name: "LiKL"
+  ## backbone 
+  backbone: "mobilenet_v2" #mobilenet_v2 mobilenet_v3_large
+  backbone_cfg:
+    input_channel: 3
+    pretrained: True # use backbone pretrained weight
+  ## fpn decoder
+  fpn: "fpn"
+  fpn_cfg:
+    out_channels_list: [256, 128, 64]
+  ## Line decoder
+  line_decoder_cfg:
+    input_feat_dim: 64
+    out_channels: 5
+  ## Points decoder
+  points_decoder_cfg:
+    input_feat_dim: 64
+    out_channels: 3
+  ## Desciptor decoder
+  descriptor_decoder_cfg:
+    input_feat_dim: 64
+    out_channels: 128
+
+
+## train config
+random_seed: 42
+optimizer: "AdamW" # Adan AdamW Adam
+epochs: 230
+learning_rate: 1.0e-3
+weight_decay: 1.0e-2
+train_batch_size: 4
+val_batch_size: 4
+num_works: 8
+
+## lr decay
+lr_decay: True
+lr_decay_cfg:
+  policy: "multistep"
+  gamma: 0.1
+  milestones: [180]
+
+log_frequency: 100 ## The frequency of adding pictures is log_frequency * 4
+
+# loss cfg
+weight_policy: "dynamic" # Weight policy for different branches dynamic / static
+points_loss_weight: 1
+line_loss_weight: 1
+desc_loss_weight: 1
+
+## points_loss
+points_loss_cfg:
+  method: "kp2d"
+  grid_size: 8
+  dist_thresh: 4
+  cross_ratio: 2
+  position_loss_weight: 1
+  score_loss_weight: 1
+  peak_loss_weight: 1
+
+## descriptor_loss
+desciptor_loss_cfg:
+  loss_type: "hard_triplet_robust" #"hard_triplet" "hard_contrastive" "circle" "hard_semi_triplet" "hard_triplet_robust"
+  grid_size: 4
+  dist_threshold: 8
+  margin: 1 # circle 0.1  hard_triple 1 hard_contrastive 1.4
+  pos_margin: 0.1  # For hard_contrastive
+  gamma_scale: 512 # For circle
+  batch_sample: False # Find Hardest in mini-batch
+  smooth: False # Replace `relu` using 'softplus'
+
+## line loss
+line_loss_cfg:
+  ## used loss for line
+  loss_names: ["tp_center_loss", "tp_displacement_loss", "tp_match_loss"]
+  tp_center_loss_cfg:
+    func: "BinaryClassLoss"
+    use_focal: True
+    alpha: 2
+    beta: 4
+    with_sig: True
+    weight: 10
+    index: [0, 1]
+  tp_displacement_loss_cfg:
+    func: "DisplacementLoss"
+    with_sig: False
+    weight: 1
+    index: [1, 5]
+  tp_match_loss_cfg:
+    func: "LineMatchLoss"
+    score_thresh: 0.25
+    sap_thresh: 5
+    len_thresh: 5
+    with_sig: True
+    decode_mode: "cd"
+    ncs: False
+    weight: 2
+    index: [0, 5]
