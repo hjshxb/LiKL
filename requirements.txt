@@ -11,3 +11,4 @@ seaborn
 Shapely
 scikit-image
 tqdm
+pyyaml
