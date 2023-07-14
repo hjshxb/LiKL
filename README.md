@@ -2,8 +2,8 @@
 A Lightweight CNN model for joint detection and description of Keypoint and Line, which is capable of simultaneously extracting keypoint and line features in an image and inferring feature descriptors in a single process.
 
 ## Todo
-- [ ] Training steps
-- [ ] C++ demo using libtorch
+- [ ] Training code
+- [x] [C++ implementation](https://github.com/hjshxb/LiKL-cpp)
 
 ## Demo
 <img src="asset/points_match.png" width=500>
@@ -12,7 +12,7 @@ A Lightweight CNN model for joint detection and description of Keypoint and Line
 
 ## Usage
 ### Dependency
-```
+```shell
 pip install -r requirements.txt
 ```
 
@@ -26,6 +26,6 @@ You can download pre-trained model from [Google Drive](https://drive.google.com/
 ### Convert model to other formats
 - [x] torchscript
 - [ ] onnx
-```
+```shell
 python convert_model.py --weight <path-to-pretrained-weights> --file <path-to-converted-file>
 ```
