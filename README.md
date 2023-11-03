@@ -17,7 +17,7 @@ pip install -r requirements.txt
 ```
 
 ### Pre-trained model
-You can download pre-trained model from [Google Drive](https://drive.google.com/file/d/10ANVfAKiMI80pYkE54epMyGm6NyvjuJg/view?usp=sharing).
+You can download pre-trained model from [Baidu (kcdd) ](https://pan.baidu.com/s/13gWgh-rO9x1Jy-AvwN3Alg).
 
 ### How to use it
 1. Set pre-trained model path in `likl/config/extract_cfg.yaml`
