@@ -3,9 +3,9 @@ import cv2
 import numpy as np
 import torch.nn.functional as F
 
-from .process import (Tp_map_to_line_torch,
+from likl.misc.process import (Tp_map_to_line_torch,
                       convert_kp2d_pred)
-from .geometry_utils import (keypoints_to_grid,
+from likl.misc.geometry_utils import (keypoints_to_grid,
                              get_overlap_orth_line_dist
                              )
 

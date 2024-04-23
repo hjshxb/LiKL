@@ -9,7 +9,7 @@ import numpy as np
 from math import pi
 import shapely.geometry
 
-from ...misc.geometry_utils import (warp_points,
+from likl.misc.geometry_utils import (warp_points,
                                     mask_points)
 
 

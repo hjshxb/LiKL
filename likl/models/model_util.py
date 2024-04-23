@@ -15,10 +15,10 @@ from .nets.decoder import (FpnDecoder,
 
 from .nets.layers import init_weight
 from .line_matcher import WunschLineMatcher
-from ..misc.process import (Tp_map_to_line_torch,
+from likl.misc.process import (Tp_map_to_line_torch,
                             convert_kp2d_pred,
                             extract_descriptors)
-from ..misc.common import time_sync
+from likl.misc.common import time_sync
 
 
 def get_model(model_cfg, mode: str = "train"):

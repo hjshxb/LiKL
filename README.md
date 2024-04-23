@@ -25,7 +25,7 @@ You can download pre-trained model from [Baidu (kcdd) ](https://pan.baidu.com/s/
 
 ### Convert model to other formats
 - [x] torchscript
-- [ ] onnx
+- [x] onnx
 ```shell
-python convert_model.py --weight <path-to-pretrained-weights> --file <path-to-converted-file>
+python convert_model.py --weight <path-to-pretrained-weights> --file <path-to-converted-file> --fmt "onnx or torchscript"
 ```

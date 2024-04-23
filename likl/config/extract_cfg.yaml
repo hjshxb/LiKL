@@ -1,8 +1,7 @@
 model_path: "/home/data/model/LKLE/v4.pt"
 model_cfg_path: "../likl/config/train_full_cfg.yaml"
 pts_cfg: {"grid_size": 8, "cross_ratio": 2,"nms_radius": 0, "detect_thresh": 0.5, "top_k": 1000}
-lines_cfg: {"score_thresh": 0.3, "len_thresh": 3, "ncs": False, 
-    "decode_mode": "cd", "num_samples": 5, "sample_min_dist": 8}
+lines_cfg: {"score_thresh": 0.3, "len_thresh": 3, "num_samples": 5, "sample_min_dist": 8}
 
   
 

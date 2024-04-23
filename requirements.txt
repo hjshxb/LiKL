@@ -1,5 +1,7 @@
 torch>=1.11.0
 torchvision>=0.12.0
+onnx==1.11.0
+onnxruntime
 opencv-python
 opencv_contrib_python
 h5py

@@ -5,7 +5,7 @@ import cv2
 import numpy as np
 import shapely.geometry as sg
 
-from ...misc.geometry_utils import mask_points_bound
+from likl.misc.geometry_utils import mask_points_bound
 
 __all__ = ["random_scaling", "random_flipup"]
 

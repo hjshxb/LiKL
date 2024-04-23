@@ -9,7 +9,7 @@ from typing import Optional
 from tqdm import tqdm
 from torch.nn import functional as F
 
-from ..misc.geometry_utils import (keypoints_to_grid,
+from likl.misc.geometry_utils import (keypoints_to_grid,
                                    image_grid)
 
 
