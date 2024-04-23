@@ -38,8 +38,9 @@ def convert_onnx(model, img, file: str):
                       verbose=False,
                       opset_version=12,
                       input_names=['input'],
-                      output_names=['line_pred', 'points_pred', 'desc_pred'],
-                      dynamic_axes={'input': {2: 'image_height', 3: "image_width"}})
+                      output_names=['line_pred', 'points_pred', 'desc_pred']
+                    #   dynamic_axes={'input': {2: 'image_height', 3: "image_width"}}
+    )
 
     # Check
     onnx_model = onnx.load(file)

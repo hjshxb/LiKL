@@ -29,3 +29,7 @@ You can download pre-trained model from [Baidu (kcdd) ](https://pan.baidu.com/s/
 ```shell
 python convert_model.py --weight <path-to-pretrained-weights> --file <path-to-converted-file> --fmt "onnx or torchscript"
 ```
+
+**Known issue**
+
+A bug is raised when using dynamic_axes, this would be due to `deform_conv2d_onnx_exporter`. DeformConv was added in [opset 19](https://onnx.ai/onnx/operators/onnx__DeformConv.html#l-onnx-doc-deformconv), but `torch.onnx (Pytorch 2.3)` currently only supports `opset 17`. 
